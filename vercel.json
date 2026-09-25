@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/media/:path*", "destination": "https://prana-assets.forestily.com/:path*" },
+    { "source": "/((?!assets/|media/)[^.]*)", "destination": "/index.html" }
+  ]
+}

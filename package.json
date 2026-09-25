@@ -1,0 +1,51 @@
+{
+  "name": "prana-os",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Offline-first breathing and meditation app with a drift-free, hardware-clocked timing engine.",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JayJay-101/pranas.git"
+  },
+  "keywords": [
+    "meditation",
+    "breathing",
+    "web-audio",
+    "indexeddb",
+    "offline-first",
+    "react",
+    "typescript"
+  ],
+  "scripts": {
+    "predev": "node scripts/generate-manifest.js",
+    "dev": "vite",
+    "prebuild": "node scripts/generate-manifest.js",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "generate-manifest": "node scripts/generate-manifest.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "lucide-react": "^0.263.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^8.1.4",
+    "vitest": "^5.0.1"
+  },
+  "overrides": {
+    "picomatch": "^2.3.2"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "generatedAt": "2026-07-11T17:10:14.396Z",
+  "patterns": {
+    "box": {
+      "totalDurationMs": 600000,
+      "totalDurationSec": 600
+    },
+    "resonance": {
+      "totalDurationMs": 1200000,
+      "totalDurationSec": 1200
+    },
+    "sleep": {
+      "totalDurationMs": 1800000,
+      "totalDurationSec": 1800
+    },
+    "tirumandiram": {
+      "totalDurationMs": 1800000,
+      "totalDurationSec": 1800
+    }
+  },
+  "audio": {
+    "chime_exhale.ogg": {
+      "durationSec": 8,
+      "durationMs": 8000,
+      "sizeBytes": 50917
+    },
+    "chime_hold-in.ogg": {
+      "durationSec": 8,
+      "durationMs": 8000,
+      "sizeBytes": 45763
+    },
+    "chime_hold-out.ogg": {
+      "durationSec": 8,
+      "durationMs": 8000,
+      "sizeBytes": 67655
+    },
+    "chime_inhale.ogg": {
+      "durationSec": 8,
+      "durationMs": 8000,
+      "sizeBytes": 48544
+    },
+    "prana_box_10min_binaural.ogg": {
+      "durationSec": 600,
+      "durationMs": 600000,
+      "sizeBytes": 9744832
+    },
+    "prana_box_10min_isochronic.ogg": {
+      "durationSec": 600,
+      "durationMs": 600000,
+      "sizeBytes": 9796474
+    },
+    "prana_resonance_20min_binaural.ogg": {
+      "durationSec": 1200,
+      "durationMs": 1200000,
+      "sizeBytes": 20372497
+    },
+    "prana_resonance_20min_isochronic.ogg": {
+      "durationSec": 1200,
+      "durationMs": 1200000,
+      "sizeBytes": 19652249
+    },
+    "prana_sleep_30min_binaural.ogg": {
+      "durationSec": 1800,
+      "durationMs": 1800000,
+      "sizeBytes": 30314463
+    },
+    "prana_sleep_30min_isochronic.ogg": {
+      "durationSec": 1800,
+      "durationMs": 1800000,
+      "sizeBytes": 28055401
+    },
+    "prana_tirumandiram_30min_binaural.ogg": {
+      "durationSec": 1800,
+      "durationMs": 1800000,
+      "sizeBytes": 27386198
+    },
+    "prana_tirumandiram_30min_isochronic.ogg": {
+      "durationSec": 1800,
+      "durationMs": 1800000,
+      "sizeBytes": 28365553
+    }
+  },
+  "video": {
+    "prana_geometric_box_day.mp4": {
+      "durationSec": 16,
+      "durationMs": 16000,
+      "sizeBytes": 1116004
+    },
+    "prana_geometric_box_night.mp4": {
+      "durationSec": 16,
+      "durationMs": 16000,
+      "sizeBytes": 970002
+    },
+    "prana_geometric_onboarding_day.mp4": {
+      "durationSec": 299.983333,
+      "durationMs": 299983,
+      "sizeBytes": 5062190
+    },
+    "prana_geometric_onboarding_night.mp4": {
+      "durationSec": 299.983333,
+      "durationMs": 299983,
+      "sizeBytes": 3750731
+    },
+    "prana_geometric_resonance_day.mp4": {
+      "durationSec": 9.983333,
+      "durationMs": 9983,
+      "sizeBytes": 804184
+    },
+    "prana_geometric_resonance_night.mp4": {
+      "durationSec": 9.983333,
+      "durationMs": 9983,
+      "sizeBytes": 659817
+    },
+    "prana_geometric_sleep_day.mp4": {
+      "durationSec": 19,
+      "durationMs": 19000,
+      "sizeBytes": 1438252
+    },
+    "prana_geometric_sleep_night.mp4": {
+      "durationSec": 19,
+      "durationMs": 19000,
+      "sizeBytes": 1298488
+    },
+    "prana_geometric_tirumandiram_day.mp4": {
+      "durationSec": 10.483333,
+      "durationMs": 10483,
+      "sizeBytes": 972956
+    },
+    "prana_geometric_tirumandiram_night.mp4": {
+      "durationSec": 10.5,
+      "durationMs": 10500,
+      "sizeBytes": 932191
+    },
+    "prana_mandala_box_day.mp4": {
+      "durationSec": 16,
+      "durationMs": 16000,
+      "sizeBytes": 2793838
+    },
+    "prana_mandala_box_night.mp4": {
+      "durationSec": 16,
+      "durationMs": 16000,
+      "sizeBytes": 2050123
+    },
+    "prana_mandala_onboarding_day.mp4": {
+      "durationSec": 300,
+      "durationMs": 300000,
+      "sizeBytes": 25024021
+    },
+    "prana_mandala_onboarding_night.mp4": {
+      "durationSec": 300,
+      "durationMs": 300000,
+      "sizeBytes": 11783066
+    },
+    "prana_mandala_resonance_day.mp4": {
+      "durationSec": 9.966667,
+      "durationMs": 9967,
+      "sizeBytes": 2174064
+    },
+    "prana_mandala_resonance_night.mp4": {
+      "durationSec": 9.983333,
+      "durationMs": 9983,
+      "sizeBytes": 1609534
+    },
+    "prana_mandala_sleep_day.mp4": {
+      "durationSec": 18.966667,
+      "durationMs": 18967,
+      "sizeBytes": 3397737
+    },
+    "prana_mandala_sleep_night.mp4": {
+      "durationSec": 18.983333,
+      "durationMs": 18983,
+      "sizeBytes": 2531348
+    },
+    "prana_mandala_tirumandiram_day.mp4": {
+      "durationSec": 10.483333,
+      "durationMs": 10483,
+      "sizeBytes": 2426281
+    },
+    "prana_mandala_tirumandiram_night.mp4": {
+      "durationSec": 10.483333,
+      "durationMs": 10483,
+      "sizeBytes": 1729527
+    }
+  }
+}

@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #050505;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Scrolling is opt-out per page, not global: App renders its own
+   h-screen overflow-hidden container, while document-flow pages
+   (pricing, login) must be able to scroll on small viewports. */
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Custom animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-top-6 {
+  from {
+    transform: translateY(-1.5rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
+
+.slide-in-from-top-6 {
+  animation-name: slide-in-from-top-6;
+}
+
+.slide-in-from-right {
+  animation-name: slide-in-from-right;
+}
+
+.zoom-in-95 {
+  animation-name: zoom-in-95;
+}
+
+.duration-300 {
+  animation-duration: 300ms;
+}
+
+.duration-700 {
+  animation-duration: 700ms;
+}
+
+/* --- GLASSMORPHISM (login) --- */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Google Sign-In button: the button is a pill shape but its iframe is
+   rectangular. The iframe's document (accounts.google.com) is cross-origin,
+   so its internal background can't be styled from here — instead clip the
+   iframe itself to the pill radius so the corner bleed-through is hidden. */
+.google-btn-container {
+  border-radius: 9999px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.google-btn-container iframe {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.glass-input:focus-within {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Ambient pulsing shadow for the primary call to action. Animating the
+   shadow alone (not opacity or transform) keeps the button's own
+   hover/active transitions free to run on top of it. */
+@keyframes ambient-pulse {
+  0%, 100% { box-shadow: 0 0 18px rgba(255, 255, 255, 0.06); }
+  50%      { box-shadow: 0 0 34px rgba(255, 255, 255, 0.16); }
+}
+.ambient-pulse {
+  animation: ambient-pulse 4s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+/* Sleep pattern — breathing border glow (11s = compressed 4-7-8 cycle) */
+@keyframes sleep-breathe {
+  0%, 100% { border-color: rgba(255,255,255,0.10); }
+  50%       { border-color: rgba(255,255,255,0.30); }
+}
+.sleep-glow {
+  animation: sleep-breathe 11s ease-in-out infinite;
+}
+/* ── Dual-screen hinge avoidance (Surface Duo & friends) ─────────────────
+   A web app cannot mirror or power off a screen — the OS owns that. What
+   we can do is keep interactive UI out of the hinge via the Viewport
+   Segments API. Browsers without dual-screen support ignore these queries
+   entirely. */
+
+/* Hinge vertical (screens side by side): pin content to the left segment. */
+@media (horizontal-viewport-segments: 2) {
+  .hinge-aware {
+    width: env(viewport-segment-width 0 0);
+    max-width: env(viewport-segment-width 0 0);
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Hinge horizontal (screens stacked): fit panels into the top segment;
+   they scroll within it instead of straddling the hinge. */
+@media (vertical-viewport-segments: 2) {
+  .hinge-fit-v {
+    height: env(viewport-segment-height 0 0);
+    bottom: auto;
+  }
+}
+
+/* Tutorial finger: a small press toward the target, then a pause. */
+@keyframes tour-tap {
+  0%, 60%, 100% { transform: translateY(0) scale(1); }
+  30%           { transform: translateY(-8px) scale(0.92); }
+}
+.tour-tap { animation: tour-tap 1.4s ease-in-out infinite; }
+.rotate-180.tour-tap { animation-name: tour-tap-down; }
+@keyframes tour-tap-down {
+  0%, 60%, 100% { transform: rotate(180deg) translateY(0) scale(1); }
+  30%           { transform: rotate(180deg) translateY(-8px) scale(0.92); }
+}
+
+/* Ring that pulses out from the highlighted control on each tap. */
+@keyframes tour-ripple {
+  0%   { transform: scale(1);    opacity: 0.8; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+.tour-ripple { animation: tour-ripple 1.4s ease-out infinite; animation-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-tap, .rotate-180.tour-tap, .tour-ripple { animation: none; }
+}

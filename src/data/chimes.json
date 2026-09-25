@@ -1,0 +1,6 @@
+{
+    "resonance":     { "inhale": true,  "hold-in": false, "exhale": true,  "hold-out": false },
+    "box":           { "inhale": true,  "hold-in": true,  "exhale": true,  "hold-out": true  },
+    "sleep":         { "inhale": true,  "hold-in": false, "exhale": false, "hold-out": false },
+    "tirumandiram":  { "inhale": true,  "hold-in": true,  "exhale": true,  "hold-out": false }
+  }
