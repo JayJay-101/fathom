@@ -324,7 +324,7 @@ export default function App() {
       >
         <div className="flex flex-col gap-1">
           <span className="text-[10px] font-bold tracking-[0.2em] text-white/30 uppercase">
-            Prana.OS
+            Fathom
           </span>
           {isPlaying && sessionStartTimeRef.current && (
             <span className="text-[10px] font-mono text-white/20 tracking-widest">

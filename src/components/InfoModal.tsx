@@ -19,7 +19,7 @@ export const InfoModal: React.FC<InfoModalProps> = ({ onClose, onReplayTour }) =
       >
         <X size={20} />
       </button>
-      <h3 className="text-lg font-light text-white mb-6">Prana.OS v2</h3>
+      <h3 className="text-lg font-light text-white mb-6">Fathom v2</h3>
       <p className="text-xs text-white/60 leading-relaxed mb-6">
         Bio-Generative Asset Engine
         <br />

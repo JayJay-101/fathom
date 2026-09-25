@@ -195,7 +195,7 @@ export const Tour: React.FC<TourProps> = ({ onClose }) => {
           {isWelcome ? (
             <>
               <p className="text-[10px] tracking-[0.3em] uppercase text-cyan-300/70 mb-3">Welcome</p>
-              <h2 className="text-xl font-light text-white mb-3">Welcome to Prana.OS</h2>
+              <h2 className="text-xl font-light text-white mb-3">Welcome to Fathom</h2>
               <p className="text-sm text-white/60 leading-relaxed mb-6">
                 A guided breathing space. Pick a rhythm, follow the count, and let the
                 visuals and chimes pace your breath. Here's a 30-second tour of the controls.

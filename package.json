@@ -1,5 +1,5 @@
 {
-  "name": "prana-os",
+  "name": "fathom",
   "private": true,
   "version": "2.0.0",
   "description": "Offline-first breathing and meditation app with a drift-free, hardware-clocked timing engine.",
@@ -7,7 +7,7 @@
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JayJay-101/pranas.git"
+    "url": "https://github.com/JayJay-101/fathom.git"
   },
   "keywords": [
     "meditation",

@@ -1,6 +1,6 @@
-# Prana.OS
+# Fathom
 
-[![CI](https://github.com/JayJay-101/pranas/actions/workflows/ci.yml/badge.svg)](https://github.com/JayJay-101/pranas/actions/workflows/ci.yml)
+[![CI](https://github.com/JayJay-101/fathom/actions/workflows/ci.yml/badge.svg)](https://github.com/JayJay-101/fathom/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 An open-source breathing and meditation app that runs entirely in the
@@ -21,7 +21,7 @@ stays on your device, and the background videos and sound stream from a CDN
 
 ## Why this project exists
 
-I'm a backend engineer. Prana.OS began as a React client talking to a Go +
+I'm a backend engineer. Fathom began as a React client talking to a Go +
 Postgres API with accounts, billing and a trial quota. I rebuilt it as a
 serverless, client-only app, and wrote the frontend the way I'd write a
 backend service:
@@ -40,8 +40,8 @@ backend service:
 ## Quick start
 
 ```bash
-git clone https://github.com/JayJay-101/pranas.git
-cd pranas
+git clone https://github.com/JayJay-101/fathom.git
+cd fathom
 npm install
 npm run dev          # http://localhost:3000
 ```

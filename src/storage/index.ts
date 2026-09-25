@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// Prana.OS — local storage layer.
+// Fathom — local storage layer.
 //
 // This module replaces the former src/api/client.ts. It exports the same
 // function names and (near-identical) signatures, so call sites read the same
