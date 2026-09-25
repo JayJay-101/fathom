@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for taking a look. Prana.OS is small on purpose, so the bar for a
+Thanks for taking a look. Fathom is small on purpose, so the bar for a
 change is "does it keep the app offline, correct, and simple?"
 
 ## Setup

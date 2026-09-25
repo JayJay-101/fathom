@@ -57,7 +57,7 @@ export function OnboardingPage({ onComplete }: { onComplete: () => void }) {
   return (
     <div className="relative w-full min-h-screen bg-black flex flex-col items-center justify-center text-white/90 select-none px-6">
       <span className="absolute top-8 text-[10px] font-bold tracking-[0.2em] text-white/20 uppercase">
-        Prana.OS
+        Fathom
       </span>
 
       {step === 1 && (
