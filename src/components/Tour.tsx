@@ -20,12 +20,6 @@ interface Step {
 
 const STEPS: Step[] = [
   {
-    target: 'visual',
-    title: 'Pick a visual',
-    body: v => `${v} Aurora or Geo to choose the background that breathes with you.`,
-    when: 'before',
-  },
-  {
     target: 'patterns',
     title: 'Choose a rhythm',
     body: v => `Each pattern is a different breath. ${v} one to see what it's for and how long it lasts.`,
@@ -76,7 +70,7 @@ const STEPS: Step[] = [
 ];
 
 const MATRIX: { label: string; before: boolean; during: boolean; note?: string }[] = [
-  { label: 'Visual & rhythm',     before: true, during: false },
+  { label: 'Rhythm',              before: true, during: false },
   { label: 'Earphones / speaker', before: true, during: false, note: 'locked' },
   { label: 'Background sound',    before: true, during: true },
   { label: 'Chime bell',          before: true, during: true },

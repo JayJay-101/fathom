@@ -1,12 +1,10 @@
 import React, { MutableRefObject, useEffect, useRef, useState } from 'react';
-import { VisualMode } from '../types';
 import { getVideoUrl } from '../utils/assetMap';
 import { engine } from '../engine/PranaEngine';
 
 interface VideoBackgroundProps {
   /** The pattern selected in Controls — loaded before the session starts. */
   patternId: string;
-  visualMode: VisualMode;
   isNightMode: boolean;
   isPlaying: boolean;
   /** Reports whether the session video can play through without stalling. */
@@ -45,7 +43,6 @@ const VIDEO = 'absolute inset-0 w-full h-full object-cover object-center pointer
 // does not help: browsers keep ranged media downloads per element.)
 export const VideoBackground: React.FC<VideoBackgroundProps> = ({
   patternId,
-  visualMode,
   isNightMode,
   isPlaying,
   onReadyChange,
@@ -53,10 +50,10 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
   // The session layer's currently displayed element, for the sync loop.
   const sessionVideoRef = useRef<HTMLVideoElement | null>(null);
 
-  const sessionDay   = getVideoUrl(visualMode, patternId, 'day');
-  const sessionNight = getVideoUrl(visualMode, patternId, 'night');
-  const idleDay      = getVideoUrl(visualMode, 'idle', 'day');
-  const idleNight    = getVideoUrl(visualMode, 'idle', 'night');
+  const sessionDay   = getVideoUrl(patternId, 'day');
+  const sessionNight = getVideoUrl(patternId, 'night');
+  const idleDay      = getVideoUrl('idle', 'day');
+  const idleNight    = getVideoUrl('idle', 'night');
 
   // Session start: rewind so the first frame matches the engine's t=0.
   useEffect(() => {

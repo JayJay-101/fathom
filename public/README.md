@@ -3,7 +3,7 @@
 The app reads its background videos and audio beds from this directory:
 
 ```
-public/video/prana_{geometric|mandala}_{onboarding|resonance|box|sleep|tirumandiram}_{day|night}.webm
+public/video/prana_mandala_{onboarding|resonance|box|sleep|tirumandiram}_{day|night}.webm
 public/audio/prana_{resonance|box|sleep|tirumandiram}_{10min|20min|30min}_{binaural|isochronic}.opus
 public/audio/chime_{inhale|hold-in|exhale|hold-out}.opus
 ```
