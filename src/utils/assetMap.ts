@@ -1,5 +1,3 @@
-import { VisualMode } from '../types';
-
 // Media is served from the asset host rather than from this clone.
 //
 // Media is optional by design. Every consumer of these paths degrades
@@ -11,13 +9,11 @@ const ASSET_BASE = 'https://prana-assets.forestily.com';
 const VIDEO_DIR = `${ASSET_BASE}/video`;
 const AUDIO_DIR = `${ASSET_BASE}/audio`;
 
-export const getVideoUrl = (style: VisualMode, patternId: string, mode: 'day' | 'night') => {
+export const getVideoUrl = (patternId: string, mode: 'day' | 'night') => {
   const safePattern = patternId === 'idle' ? 'onboarding' : patternId;
 
-  // Maps the UI button names to the actual video files.
-  const safeStyle = (style === 'geometry' || style === 'orbital') ? 'geometric' : 'mandala';
-
-  return `${VIDEO_DIR}/prana_${safeStyle}_${safePattern}_${mode}.webm`;
+  // Aurora is the only visual style — its files are named "mandala".
+  return `${VIDEO_DIR}/prana_mandala_${safePattern}_${mode}.webm`;
 };
 
 export const getAudioBedUrl = (patternId: string, type: 'binaural' | 'isochronic' = 'binaural') => {

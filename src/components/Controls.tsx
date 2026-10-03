@@ -1,13 +1,10 @@
-import { BreathPattern, VisualMode } from '../types';
+import { BreathPattern } from '../types';
 import { PATTERNS } from '../data/presets';
-import { Disc, Wind } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ControlsProps {
   selectedPattern: BreathPattern;
   onSelectPattern: (pattern: BreathPattern) => void;
-  visualMode: VisualMode;
-  onSelectVisual: (mode: VisualMode) => void;
   onStart: () => void;
   visible: boolean;
   isStarting?: boolean;
@@ -20,8 +17,6 @@ interface ControlsProps {
 export const Controls = ({
   selectedPattern,
   onSelectPattern,
-  visualMode,
-  onSelectVisual,
   onStart,
   visible,
   isStarting = false,
@@ -52,39 +47,7 @@ export const Controls = ({
           the fixed header icon row. */}
       <div className="w-full max-w-2xl flex flex-col items-center gap-6 sm:gap-12 m-auto pt-20 pb-8 sm:py-8 hinge-aware">
 
-        {/* 1. VISUAL ENGINE SELECTOR */}
-        <div className="flex flex-wrap gap-4 justify-center" data-tour="visual">
-          {[
-            { id: 'aurora',   icon: Wind, label: 'Aurora' },
-            { id: 'geometry', icon: Disc, label: 'Geo'    },
-          ].map((mode) => {
-            const isActive = visualMode === mode.id;
-            return (
-              <button
-                key={mode.id}
-                onClick={() => onSelectVisual(mode.id as VisualMode)}
-                className={`group relative flex flex-col items-center gap-2 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] active:scale-95 ${
-                  isActive ? 'scale-110' : 'opacity-40 hover:opacity-80 hover:scale-105'
-                }`}
-              >
-                <div
-                  className={`p-3 rounded-full transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] border border-white/10 ${
-                    isActive
-                      ? 'bg-white text-black shadow-[0_0_30px_rgba(255,255,255,0.3)]'
-                      : 'bg-black/50 text-white'
-                  }`}
-                >
-                  <mode.icon size={20} strokeWidth={1.5} />
-                </div>
-                <span className="text-[9px] uppercase tracking-[0.15em] font-medium">
-                  {mode.label}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* 2. PATTERN SELECTOR */}
+        {/* 1. PATTERN SELECTOR */}
         <div className="flex flex-col items-center gap-4 w-full px-8">
           <span className="text-[9px] uppercase tracking-[0.3em] text-white/30 mb-2">
             Select Rhythm
@@ -138,7 +101,7 @@ export const Controls = ({
           </div>
         </div>
 
-        {/* 3. STATS STRIP — visible only when data has loaded; absent on null */}
+        {/* 2. STATS STRIP — visible only when data has loaded; absent on null */}
         {stats && (
           <div className="flex flex-col items-center gap-1.5 w-full px-8">
             <span className="text-[9px] uppercase tracking-[0.25em] text-white/20">
@@ -154,7 +117,7 @@ export const Controls = ({
           </div>
         )}
 
-        {/* 4. START */}
+        {/* 3. START */}
         <div className="flex flex-col items-center gap-4 sm:gap-6 mt-2 sm:mt-8">
           <button
             onClick={onStart}

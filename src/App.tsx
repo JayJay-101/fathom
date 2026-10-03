@@ -6,7 +6,7 @@ import { VideoBackground } from './components/VideoBackground';
 import { AudioSession } from './components/AudioSession';
 import { Controls } from './components/Controls';
 import { BreathTimer } from './components/BreathTimer';
-import { VisualMode, AudioOutputMode, BreathPattern } from './types';
+import { AudioOutputMode, BreathPattern } from './types';
 import { PATTERNS } from './data/presets';
 import { InfoModal } from './components/InfoModal';
 import { IconButton } from './components/IconButton';
@@ -39,6 +39,10 @@ const PHASE_META = {
   'hold-out': { label: 'Empty',   instruction: 'Embrace Void' },
 };
 
+// Aurora is the only visual style now — kept as a constant so the stored
+// profile field and session log keep their shape.
+const VISUAL_MODE = 'aurora';
+
 export default function App() {
   const { isNightMode, toggleNightMode } = useNightMode();
 
@@ -54,7 +58,6 @@ export default function App() {
   const [finalStats, setFinalStats] = useState({ minutes: 0, cycles: 0 });
   const [showChimeNudge, setShowChimeNudge] = useState(false);
   const [selectedPattern, setSelectedPattern] = useState<BreathPattern>(PATTERNS[2]);
-  const [visualMode, setVisualMode] = useState<VisualMode>('geometry');
   const [audioMode, setAudioMode] = useState<AudioOutputMode>('earphones');
   const [uiVisible, setUiVisible] = useState(true);
   const [showInfo, setShowInfo] = useState(false);
@@ -82,7 +85,6 @@ export default function App() {
   useEffect(() => {
     fetchMe().then(p => {
       setNeedsOnboarding(!p.onboarding_completed);
-      if (p.visual_mode) setVisualMode(p.visual_mode as VisualMode);
       if (p.audio_mode) setAudioMode(p.audio_mode as AudioOutputMode);
       setIsChimesEnabled(p.chimes_enabled);
       // First visit after onboarding: offer the guided tour once.
@@ -94,8 +96,8 @@ export default function App() {
   // where the last one left off.
   useEffect(() => {
     if (needsOnboarding !== false) return;
-    patchMe({ visual_mode: visualMode, audio_mode: audioMode, chimes_enabled: isChimesEnabled });
-  }, [visualMode, audioMode, isChimesEnabled, needsOnboarding]);
+    patchMe({ visual_mode: VISUAL_MODE, audio_mode: audioMode, chimes_enabled: isChimesEnabled });
+  }, [audioMode, isChimesEnabled, needsOnboarding]);
 
   // ── FULLSCREEN ─────────────────────────────────────────────────────────────
   useEffect(() => {
@@ -197,7 +199,7 @@ export default function App() {
       ended_at:                  new Date(endedAt).toISOString(),
       duration_minutes:          summary.durationMinutes,
       pattern_id:                selectedPattern.id,
-      visual_mode:               visualMode,
+      visual_mode:               VISUAL_MODE,
       audio_mode:                bedType,
       cycles_completed:          summary.cycles,
       max_session_depth_reached: null,
@@ -301,7 +303,6 @@ export default function App() {
     >
       <VideoBackground
         patternId={selectedPattern.id}
-        visualMode={visualMode}
         isNightMode={isNightMode}
         isPlaying={isPlaying}
         onReadyChange={handleVideoReady}
@@ -447,8 +448,6 @@ export default function App() {
       <Controls
         selectedPattern={selectedPattern}
         onSelectPattern={setSelectedPattern}
-        visualMode={visualMode}
-        onSelectVisual={setVisualMode}
         onStart={handleStart}
         visible={!isPlaying}
         isStarting={isStarting}
